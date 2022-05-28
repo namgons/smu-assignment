@@ -1,3 +1,3 @@
 # smu-assignment
 
-![flow diagram](https://github.com/ng-lee/smu-assignment/blob/main/flow%20diagram.png)
+![flow diagram](https://github.com/ng-lee/smu-assignment/blob/main/fiow%20diagram.png)
