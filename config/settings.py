@@ -39,7 +39,13 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-PROJECT_APPS = []
+PROJECT_APPS = [
+    "core.apps.CoreConfig",
+    "users.apps.UsersConfig",
+    "movies.apps.MoviesConfig",
+    "friends.apps.FriendsConfig",
+    "reviews.apps.ReviewsConfig",
+]
 
 THIRD_PARTY_APPS = []
 
