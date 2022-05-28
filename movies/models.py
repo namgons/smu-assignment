@@ -1,5 +1,4 @@
 from django.db import models
-from reviews import models as review_models
 
 
 class Movie(models.Model):
