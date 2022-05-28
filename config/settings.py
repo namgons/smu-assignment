@@ -43,7 +43,6 @@ PROJECT_APPS = [
     "core.apps.CoreConfig",
     "users.apps.UsersConfig",
     "movies.apps.MoviesConfig",
-    "friends.apps.FriendsConfig",
     "reviews.apps.ReviewsConfig",
 ]
 
