@@ -9,6 +9,8 @@ class User(AbstractUser):
 
 
 class UserFollowing(core_models.TimeStampedModel):
-    user_id = models.ForeignKey(User, related_name="follwing")
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="follwing")
 
-    following_user_id = models.ForeignKey(User, related_name="follower")
+    following_user_id = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="follower"
+    )
