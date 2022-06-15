@@ -14,7 +14,4 @@ class ContentAdmin(admin.ModelAdmin):
 
     list_filter = ("media_type",)
 
-    ordering = (
-        "title",
-        "released",
-    )
+    ordering = ("-released",)

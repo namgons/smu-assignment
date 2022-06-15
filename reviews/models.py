@@ -6,22 +6,7 @@ from contents import models as content_models
 
 class Review(core_models.TimeStampedModel):
 
-    RATING_ONE = 1
-    RATING_TWO = 2
-    RATING_THREE = 3
-    RATING_FOUR = 4
-    RATING_FIVE = 5
-
-    RATING_CHOICE = (
-        (RATING_ONE, 1),
-        (RATING_TWO, 2),
-        (RATING_THREE, 3),
-        (RATING_FOUR, 4),
-        (RATING_FIVE, 5),
-    )
-
-    content = models.TextField(max_length=200)
-    rating = models.IntegerField(choices=RATING_CHOICE)
+    comment = models.TextField(max_length=200)
 
     user = models.ForeignKey(
         user_models.User, on_delete=models.CASCADE, related_name="reviews"

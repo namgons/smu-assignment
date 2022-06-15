@@ -10,7 +10,7 @@ class Command(BaseCommand):
 
         count = 1
 
-        for i in range(1, 20):
+        for i in range(1, 5):
             for video in tmdb.Trending().info(page=i)["results"]:
                 try:
                     content_models.Content.objects.get(pk=video["id"])
