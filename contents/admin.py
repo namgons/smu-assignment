@@ -1,3 +1,5 @@
 from django.contrib import admin
+from contents import models as content_models
 
-# Register your models here.
+
+admin.site.register(content_models.Content)

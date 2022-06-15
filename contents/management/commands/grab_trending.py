@@ -1,5 +1,5 @@
 from django.core.management import BaseCommand
-from movies import models as movie_models
+from contents import models as content_models
 import tmdbsimple as tmdb
 
 
@@ -11,30 +11,30 @@ class Command(BaseCommand):
         for i in range(1, 10):
             for video in tmdb.Trending().info(page=i)["results"]:
                 try:
-                    movie_models.Movie.objects.get(pk=video["id"])
+                    content_models.Content.objects.get(pk=video["id"])
                 except:
                     if video["media_type"] == "tv":
                         title = video["name"]
                         released = video["first_air_date"]
-                        media_type = movie_models.Movie.TYPE_TV
-                    if video["media_type"] == "movie":
+                        media_type = content_models.Content.TYPE_TV
+                    if video["media_type"] == "content":
                         title = video["title"]
                         released = video["release_date"]
-                        media_type = movie_models.Movie.TYPE_MOVIE
+                        media_type = content_models.Content.TYPE_content
 
                     pk = video["id"]
                     overview = video["overview"]
                     rating = video["vote_average"]
                     poster_path = video["poster_path"]
 
-                    movie_models.Movie.objects.create(
+                    content_models.Content.objects.create(
                         title=title,
                         pk=pk,
                         overview=overview,
                         rating=rating,
                         released=released,
-                        poster_path=f"https://www.themoviedb.org/t/p/w1280/{poster_path}",
+                        poster_path=f"https://www.thecontentdb.org/t/p/w1280/{poster_path}",
                         media_type=media_type,
                     )
 
-        self.stdout.write(self.style.SUCCESS("Connection Succeed!"))
+        self.stdout.write(self.style.SUCCESS("Created Trending Contents!"))

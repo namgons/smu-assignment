@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Movie(models.Model):
+class Content(models.Model):
 
     TYPE_TV = "tv"
     TYPE_MOVIE = "movie"
