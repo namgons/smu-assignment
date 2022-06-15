@@ -6,22 +6,22 @@ from movies import models as movie_models
 
 class Review(core_models.TimeStampedModel):
 
-    RATE_ONE = 1
-    RATE_TWO = 2
-    RATE_THREE = 3
-    RATE_FOUR = 4
-    RATE_FIVE = 5
+    RATING_ONE = 1
+    RATING_TWO = 2
+    RATING_THREE = 3
+    RATING_FOUR = 4
+    RATING_FIVE = 5
 
-    RATE_CHOICE = (
-        (RATE_ONE, 1),
-        (RATE_TWO, 2),
-        (RATE_THREE, 3),
-        (RATE_FOUR, 4),
-        (RATE_FIVE, 5),
+    RATING_CHOICE = (
+        (RATING_ONE, 1),
+        (RATING_TWO, 2),
+        (RATING_THREE, 3),
+        (RATING_FOUR, 4),
+        (RATING_FIVE, 5),
     )
 
     content = models.TextField(max_length=200)
-    rate = models.IntegerField(choices=RATE_CHOICE)
+    rating = models.IntegerField(choices=RATING_CHOICE)
 
     user = models.ForeignKey(
         user_models.User, on_delete=models.CASCADE, related_name="reviews"
