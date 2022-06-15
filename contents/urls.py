@@ -4,7 +4,8 @@ from . import views
 app_name = "contents"
 
 urlpatterns = [
-    path("<int:pk>/", views.ContentView.as_view(), name="content"),
+    path("", views.ContentsView.as_view(), name="contents"),
+    path("<int:pk>/", views.SingleContentView.as_view(), name="single_content"),
     path(
         "<int:pk>/reviews/create/",
         views.CreateReviewView.as_view(),

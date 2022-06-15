@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Contents
+{% endblock page_title %}
+
+{% block content %}
+    <div>
+        <ul>
+        {% for content in contents %}
+            <li>{{ content.title }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}
