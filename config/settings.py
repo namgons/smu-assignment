@@ -42,7 +42,7 @@ DJANGO_APPS = [
 PROJECT_APPS = [
     "core.apps.CoreConfig",
     "users.apps.UsersConfig",
-    "movies.apps.MoviesConfig",
+    "contents.apps.ContentsConfig",
     "reviews.apps.ReviewsConfig",
 ]
 
