@@ -7,5 +7,5 @@ class MovieAdmin(admin.ModelAdmin):
 
     list_display = (
         "title",
-        "get_total_rate",
+        "get_total_rating",
     )

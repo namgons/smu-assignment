@@ -46,7 +46,10 @@ PROJECT_APPS = [
     "reviews.apps.ReviewsConfig",
 ]
 
-THIRD_PARTY_APPS = ["tmdb3"]
+THIRD_PARTY_APPS = [
+    "tmdbsimple",
+    "requests",
+]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 

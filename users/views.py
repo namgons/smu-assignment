@@ -1,30 +1,31 @@
 from django import views
 from django.shortcuts import render
+from django.views.generic import View
 
 
-class LoginView:
+class LoginView(View):
     pass
 
 
-class LogoutView:
+class LogoutView(View):
     pass
 
 
-class ProfileView:
+class ProfileView(View):
     pass
 
 
-class FavsView:
+class FavsView(View):
     pass
 
 
-class ReviewsView:
+class ReviewsView(View):
     pass
 
 
-class FollowersView:
+class FollowersView(View):
     pass
 
 
-class FollowingView:
+class FollowingView(View):
     pass

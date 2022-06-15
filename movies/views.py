@@ -1,3 +1,12 @@
 from django.shortcuts import render
+from django.views.generic import View
 
-# Create your views here.
+
+class MovieView(View):
+
+    pass
+
+
+class CreateReviewView(View):
+
+    pass
