@@ -8,6 +8,7 @@ django = "==3.0.6"
 tmdbsimple = "*"
 requests = "*"
 django-seed = "*"
+psycopg2 = "*"
 
 [dev-packages]
 flake8 = "*"
