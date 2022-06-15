@@ -49,6 +49,7 @@ PROJECT_APPS = [
 THIRD_PARTY_APPS = [
     "tmdbsimple",
     "requests",
+    "django-seed",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
