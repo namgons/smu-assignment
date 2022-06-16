@@ -1,4 +1,8 @@
 from django.contrib import admin
 from . import models as review_models
 
-admin.site.register(review_models.Review)
+
+@admin.register(review_models.Review)
+class ReviewAdmin(admin.ModelAdmin):
+
+    list_display = ("user", "content")
