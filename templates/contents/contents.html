@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 
 {% block page_title %}
-    Contents
+    {{ page_title }}
 {% endblock page_title %}
 
 {% block content %}
+
+    <div class="text-5xl font-bold mb-10">
+        {{ page_title }}
+    </div>
     
     <div class="grid grid-cols-4 gap-4">
         

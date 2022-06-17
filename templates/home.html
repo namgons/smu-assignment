@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 
 {% block page_title %}
-    HOME
+    Home
 {% endblock page_title %}
 
 {% block content %}
-    <div>
-        <ul>
-            
-            
-            {% for review in reviews %}
-                
-                {% include 'mixins/comment.html' with review=review %}
 
-            {% endfor %}
-                
-                
-        </ul>
+    <div class="text-5xl font-bold mb-10">
+        Home
+    </div>
+
+    <div>
+
+        {% for review in reviews %}
+            
+            {% include 'mixins/comment.html' with review=review %}
+
+        {% endfor %}
+
     </div>
 {% endblock content %}
-    

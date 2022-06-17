@@ -16,7 +16,7 @@
                     <span>개봉일: {{ content.released }}</span>
                     <div>
                         {% for genre in content.genres.iterator %}
-                            #{{genre}}
+                            <span class="font-semibold">#{{genre}}</span>
                         {% endfor %}
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                 <span class="text-lg">Comments: <span class="font-semibold text-red-400">{{ content.count_reviews }}</span></span>
             </div>
 
-            {% for review in content.reviews.all %}
+            {% for review in reviews %}
                 
                 {% include 'mixins/comment.html' with review=review %}
 

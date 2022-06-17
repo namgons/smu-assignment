@@ -14,9 +14,9 @@
         </div>
 
         <div class="mt-20">
-            <span class="text-xl"><span class="font-bold">{{user.username}}</span> 님이 남긴 리뷰</span>
+            <span class="text-xl"><span class="font-bold">{{user.username}}</span> 님이 남긴 리뷰 ({{ user.count_reviews }})</span>
             <div class="mt-5">
-                {% for review in user.reviews.all %}
+                {% for review in reviews %}
                     
                     {% include 'mixins/comment.html' with review=review %}
 

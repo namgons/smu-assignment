@@ -7,8 +7,6 @@ import tmdbsimple as tmdb
 class Command(BaseCommand):
     def handle(self, *args, **options):
 
-        tmdb.API_KEY = "cb6371d33ed68513e62d37f350992128"
-
         count = 0
 
         movie_genre_list = genre_models.Genre.objects.filter(
