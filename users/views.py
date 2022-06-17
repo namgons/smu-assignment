@@ -1,6 +1,6 @@
-from django import views
 from django.shortcuts import render
-from django.views.generic import View
+from django.views.generic import View, DetailView
+from . import models as user_models
 
 
 class LoginView(View):
@@ -11,8 +11,11 @@ class LogoutView(View):
     pass
 
 
-class ProfileView(View):
-    pass
+class ProfileView(DetailView):
+
+    model = user_models.User
+    context_object_name = "user"
+    template_name = "users/profile.html"
 
 
 class FavsView(View):

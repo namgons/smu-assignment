@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    {{ user.username }}'s Profile
+{% endblock page_title %}
+
+{% block content %}
+    
+    <div>
+        <div>
+            <span class="text-5xl font-bold mr-5">{{ user.username}}</span>
+            <span>Following: <span class="text-red-400 font-semibold">{{ user.count_following }}</span></span>
+            <span>Followers: <span class="text-red-400 font-semibold">{{ user.count_followers }}</span></span>
+        </div>
+
+        <div class="mt-20">
+            <span class="text-xl"><span class="font-bold">{{user.username}}</span> 님이 남긴 리뷰</span>
+            <div class="mt-5">
+                {% for review in user.reviews.all %}
+                    
+                    {% include 'mixins/comment.html' with review=review %}
+
+                {% endfor %}
+            </div>
+                
+        </div>
+    
+    </div>
+
+{% endblock content %}

@@ -6,9 +6,9 @@ app_name = "users"
 urlpatterns = [
     path("login/", views.LoginView.as_view(), name="login"),
     path("logout/", views.LogoutView.as_view(), name="logout"),
-    path("<int:id>/", views.ProfileView.as_view(), name="profile"),
-    path("<int:id>/favs", views.FavsView.as_view(), name="favs"),
-    path("<int:id>/reviews", views.ReviewsView.as_view(), name="reviews"),
-    path("<int:id>/followers", views.FollowersView.as_view(), name="followers"),
-    path("<int:id>/following", views.FollowingView.as_view(), name="following"),
+    path("<int:pk>/", views.ProfileView.as_view(), name="profile"),
+    path("<int:pk>/favs", views.FavsView.as_view(), name="favs"),
+    path("<int:pk>/reviews", views.ReviewsView.as_view(), name="reviews"),
+    path("<int:pk>/followers", views.FollowersView.as_view(), name="followers"),
+    path("<int:pk>/following", views.FollowingView.as_view(), name="following"),
 ]
