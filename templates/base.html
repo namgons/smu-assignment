@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>{% block page_title %}{% endblock page_title %}</title>
 </head>
-<body>
+<body class="w-full">
+    {% include 'partials/header.html' %}
     
-    
-    <main>
+    <main class="mx-80 mt-40">
         {% block content %}
         {% endblock content %}
     </main>

@@ -11,11 +11,19 @@
             
             {% for review in reviews %}
                 
-                <div>
-                    <span>{{review.user.username}}</span>
-                    <span>{{review.created}}</span>
-                    <span>{{review.comment}}</span>
-                    <span>{{review.content}}</span>
+                <div class="border-2 mb-5 w-full">
+                    <div>
+                        <div>
+                            <span>{{review.user.username}}</span>
+                            <span>{{review.content}}</span>
+                        </div>
+                        <div>
+                            <span>{{review.created}}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span>{{review.comment}}</span>
+                    </div>
                 </div>
 
             {% endfor %}
