@@ -18,7 +18,7 @@ class Command(BaseCommand):
             media_type=genre_models.Genre.TYPE_TV
         )
 
-        for i in range(1, 10):
+        for i in range(1, 5):
             for video in tmdb.Trending().info(page=i)["results"]:
                 try:
                     content_models.Content.objects.get(pk=video["id"])

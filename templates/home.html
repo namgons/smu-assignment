@@ -6,7 +6,22 @@
 
 {% block content %}
     <div>
-        HOME
+        <ul>
+            
+            
+            {% for review in reviews %}
+                
+                <div>
+                    <span>{{review.user.username}}</span>
+                    <span>{{review.created}}</span>
+                    <span>{{review.comment}}</span>
+                    <span>{{review.content}}</span>
+                </div>
+
+            {% endfor %}
+                
+                
+        </ul>
     </div>
 {% endblock content %}
     
