@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    {{ content.title }}
+{% endblock page_title %}
+
+{% block content %}
+    
+    <div>
+        <div class="h-96 flex mb-16">
+            <div class="flex flex-col justify-between">
+                <span class="text-5xl font-bold">{{ content.title }}</span>
+                <p>{{ content.overview }}</p>
+                <div class="flex flex-col">
+                    <span>Type: {{ content.media_type | upper }}</span>
+                    <span>Released on: {{ content.released }}</span>
+                    <div>
+                        {% for genre in content.genres.iterator %}
+                            #{{genre}}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <img src="{{ content.poster_path }}" class="h-full ml-20">
+        </div>
+        <div>
+            <span class="font-bold text-3xl">Reviews</span>
+            <div class="mb-5">
+                <span class="text-lg">Rating: <span class="font-semibold text-red-400">{{ content.rating }}</span></span>
+                <span class="text-lg">Comments: <span class="font-semibold text-red-400">{{ content.count_reviews }}</span></span>
+            </div>
+
+            {% for review in content.reviews.all %}
+                
+                {% include 'mixins/comment.html' with review=review %}
+
+            {% endfor %}
+                
+        </div>
+    
+    </div>
+
+{% endblock content %}
+    

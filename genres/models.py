@@ -16,7 +16,7 @@ class Genre(models.Model):
     genre_id = models.IntegerField()
     media_type = models.CharField(max_length=10, choices=TYPE_CHOICES)
 
-    contents = models.ManyToManyField(content_models.Content)
+    contents = models.ManyToManyField(content_models.Content, related_name="genres")
 
     def __str__(self):
         return self.name
