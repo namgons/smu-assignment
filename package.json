@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "<img src=\"https://img.shields.io/badge/Python-v3.7-blue\"/> <img src=\"https://img.shields.io/badge/Django-v3.0.6-blue\"/>",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "css": "gulp"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
     "gulp-sass": "^5.1.0",
     "node-sass": "^4.14.1",
     "sass": "^1.49.9"
+  },
+  "dependencies": {
+    "postcss": "^8.4.14"
   }
 }
