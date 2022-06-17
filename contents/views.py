@@ -31,7 +31,7 @@ class SingleContentView(DetailView):
 
     model = content_models.Content
     context_object_name = "content"
-    template_name = "contents/single.html"
+    template_name = "contents/single_content.html"
 
 
 class CreateReviewView(View):

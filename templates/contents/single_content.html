@@ -7,13 +7,13 @@
 {% block content %}
     
     <div>
-        <div class="h-96 flex mb-16">
+        <div class="h-96 flex mb-16 justify-between">
             <div class="flex flex-col justify-between">
                 <span class="text-5xl font-bold">{{ content.title }}</span>
                 <p>{{ content.overview }}</p>
                 <div class="flex flex-col">
-                    <span>Type: {{ content.media_type | upper }}</span>
-                    <span>Released on: {{ content.released }}</span>
+                    <span>유형: {{ content.media_type | upper }}</span>
+                    <span>개봉일: {{ content.released }}</span>
                     <div>
                         {% for genre in content.genres.iterator %}
                             #{{genre}}
