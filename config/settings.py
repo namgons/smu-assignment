@@ -44,6 +44,7 @@ PROJECT_APPS = [
     "users.apps.UsersConfig",
     "contents.apps.ContentsConfig",
     "reviews.apps.ReviewsConfig",
+    "genres.apps.GenresConfig",
 ]
 
 THIRD_PARTY_APPS = [
