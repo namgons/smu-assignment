@@ -26,9 +26,11 @@ class Command(BaseCommand):
             cnt2 += 1
             name = g["name"]
             genre_id = g["id"]
-            media_type = genre_models.Genre.TYPE_TV
+            media_type = genre_models.Genre.TYPE_MOVIE
             genre_models.Genre.objects.create(
                 name=name, genre_id=genre_id, media_type=media_type
             )
 
-        self.stdout.write(self.style.SUCCESS(f"Created {cnt1} TV genres and {cnt2} Movie genres!"))
+        self.stdout.write(
+            self.style.SUCCESS(f"Created {cnt1} TV genres and {cnt2} Movie genres!")
+        )
