@@ -10,6 +10,7 @@ class ContentAdmin(admin.ModelAdmin):
         "rating",
         "released",
         "media_type",
+        "count_reviews",
     )
 
     list_filter = ("media_type",)

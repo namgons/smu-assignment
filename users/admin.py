@@ -14,10 +14,11 @@ class CustomUserAdmin(UserAdmin):
 
     list_display = (
         "username",
-        "first_name",
-        "last_name",
         "count_following",
         "count_followers",
+        "count_reviews",
+        "first_name",
+        "last_name",
         "email",
         "is_active",
         "is_staff",
@@ -29,3 +30,5 @@ class CustomUserAdmin(UserAdmin):
 class UserFollowingAdmin(admin.ModelAdmin):
 
     list_display = ("following_user", "following_target_user")
+
+    ordering = ("-following_user",)

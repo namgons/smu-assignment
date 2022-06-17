@@ -10,6 +10,13 @@ class User(AbstractUser):
     def count_followers(self):
         return self.following.count()
 
+    def count_reviews(self):
+        return self.reviews.count()
+
+    def __str__(self):
+        return self.username
+
+
 
 class UserFollowing(core_models.TimeStampedModel):
     following_target_user = models.ForeignKey(
