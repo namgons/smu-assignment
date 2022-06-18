@@ -10,4 +10,4 @@ class HomeView(ListView):
     ordering = ("-created",)
     context_object_name = "reviews"
     template_name = "home.html"
-    paginate_by = 50
+    paginate_by = 20

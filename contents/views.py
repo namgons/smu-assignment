@@ -6,7 +6,7 @@ from . import models as content_models
 class MoviesView(ListView):
 
     model = content_models.Content
-    paginate_by = 40
+    paginate_by = 28
     context_object_name = "contents"
     template_name = "contents/contents.html"
 
@@ -24,7 +24,7 @@ class MoviesView(ListView):
 class TvsView(ListView):
 
     model = content_models.Content
-    paginate_by = 40
+    paginate_by = 28
     context_object_name = "contents"
     template_name = "contents/contents.html"
 

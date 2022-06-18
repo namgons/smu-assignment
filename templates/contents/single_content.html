@@ -16,7 +16,7 @@
                     <span>개봉일: {{ content.released }}</span>
                     <div>
                         {% for genre in content.genres.iterator %}
-                            <span class="font-semibold">#{{genre}}</span>
+                            <span class="font-semibold hover:underline hover:text-red-400">#{{genre}}</span>
                         {% endfor %}
                     </div>
                 </div>
@@ -26,7 +26,7 @@
         <div>
             <span class="font-bold text-3xl">Reviews</span>
             <div class="mb-5">
-                <span class="text-lg">Rating: <span class="font-semibold text-red-400">{{ content.rating }}</span></span>
+                <span class="text-lg">Rating: <span class="font-semibold text-red-400">{{ content.rating }}</span> / </span>
                 <span class="text-lg">Comments: <span class="font-semibold text-red-400">{{ content.count_reviews }}</span></span>
             </div>
 
