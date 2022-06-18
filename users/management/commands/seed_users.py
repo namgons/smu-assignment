@@ -18,7 +18,7 @@ class Command(BaseCommand):
 
         seeder = Seed.seeder()
         faker = Seed.faker("ko_KR")
-
+        user_models.User.objects.create_user
         seeder.add_entity(
             user_models.User,
             number,

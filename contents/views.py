@@ -48,8 +48,3 @@ class SingleContentView(DetailView):
         ob = context["object"]
         context["reviews"] = ob.reviews.all().order_by("-created")
         return context
-
-
-class CreateReviewView(View):
-
-    pass

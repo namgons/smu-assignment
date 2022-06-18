@@ -18,7 +18,6 @@ class SignupView(mixins.LoggedOutOnlyView, FormView):
         user = authenticate(self.request, username=username, password=password)
         if user is not None:
             login(self.request, user)
-
         return super().form_valid(form)
 
     def get_form(self, form_class=None):

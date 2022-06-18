@@ -24,10 +24,23 @@
             <img src="{{ content.poster_path }}" class="h-full ml-20">
         </div>
         <div>
-            <span class="font-bold text-3xl">Reviews</span>
-            <div class="mb-5">
-                <span class="text-lg">Rating: <span class="font-semibold text-red-400">{{ content.rating }}</span> / </span>
-                <span class="text-lg">Comments: <span class="font-semibold text-red-400">{{ content.count_reviews }}</span></span>
+            <div class="mb-5 flex justify-between items-center">
+                <div>
+                    <span class="font-bold text-3xl">Reviews</span>
+                    <div >
+                        <span class="text-lg">Rating: <span class="font-semibold text-red-400">{{ content.rating }}</span> / </span>
+                        <span class="text-lg">Comments: <span class="font-semibold text-red-400">{{ content.count_reviews }}</span></span>
+                    </div>
+                </div>
+                
+                {% if user.is_authenticated %}
+                <div>
+                    <div class="flex items-center justify-center bg-red-400 px-10 py-5 rounded-xl">
+                        <a href="{% url %}" class="text-white font-bold text-xl">Leave Comment</ㅁ>
+                    </div>
+                </div>
+                {% endif %}
+                    
             </div>
 
             {% for review in reviews %}
