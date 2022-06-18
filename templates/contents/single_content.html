@@ -34,11 +34,11 @@
                 </div>
                 
                 {% if user.is_authenticated %}
-                <div>
+                <a href="{% url 'reviews:create' pk=content.pk %}">
                     <div class="flex items-center justify-center bg-red-400 px-10 py-5 rounded-xl">
-                        <a href="{% url %}" class="text-white font-bold text-xl">Leave Comment</ㅁ>
+                        <span class="text-white font-bold text-xl">Leave Comment</span>
                     </div>
-                </div>
+                </a>
                 {% endif %}
                     
             </div>

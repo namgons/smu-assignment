@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block page_title %}
-    Log In
+    Comment on {{ content.title }}
 {% endblock page_title %}
 
 {% block content %}
-    
-    <div class="text-5xl font-bold mb-28">
-        Log In
-    </div>
 
+    <div class="text-5xl font-bold mb-28">
+        Comment on {{ content.title }}
+    </div>
+    
     <div>
 
-        {% include 'mixins/form-template.html' with form=form cta="Log In" %}
+        {% include 'mixins/form-template.html' with form=form cta="Leave Comment" %}
 
     </div>
 

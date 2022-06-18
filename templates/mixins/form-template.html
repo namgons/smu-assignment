@@ -1,0 +1,14 @@
+<form method="POST" enctype="multipart/form-data" class="w-2/3  mx-auto flex flex-col">
+    {% csrf_token %}
+
+    <div class="mx-auto">
+        {% for field in form %}
+            <div class="flex justify-between mb-5">
+                <span class="mr-10">{{ field.label }}</span>
+                <div class="input-div border-2">{{ field }}</div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <button class="mx-auto mt-10 bg-red-400 px-5 py-3 rounded-xl border"><span class="text-white">{{ cta }}</span></button>
+</form>
