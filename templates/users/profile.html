@@ -1,20 +1,32 @@
 {% extends 'base.html' %}
 
 {% block page_title %}
-    {{ user.username }}'s Profile
+    {{ user_obj.username }}'s Profile
 {% endblock page_title %}
 
 {% block content %}
     
     <div>
         <div>
-            <span class="text-5xl font-bold mr-5">{{ user.username}}</span>
-            <span>Following: <span class="text-red-400 font-semibold">{{ user.count_following }}</span></span>
-            <span>Followers: <span class="text-red-400 font-semibold">{{ user.count_followers }}</span></span>
+            <span class="text-5xl font-bold mr-5">
+            {% if user.is_authenticated and user == user_obj %}
+                내 프로필
+            {% else %}
+                {{ user_obj.username}}
+            {% endif %}
+            </span>
+            <span>Following: <span class="text-red-400 font-semibold">{{ user_obj.count_following }}</span></span>
+            <span>Followers: <span class="text-red-400 font-semibold">{{ user_obj.count_followers }}</span></span>
         </div>
 
         <div class="mt-20">
-            <span class="text-xl"><span class="font-bold">{{user.username}}</span> 님이 남긴 리뷰 ({{ user.count_reviews }})</span>
+            <span class="text-xl">
+                <span class="font-bold">{% if user.is_authenticated and user == user_obj %}
+                        내가
+                    {% else %}
+                        {{ user_obj.username}} 님이
+                    {% endif %}
+                </span> 남긴 리뷰 ({{ user_obj.count_reviews }})</span>
             <div class="mt-5">
                 {% for review in reviews %}
                     

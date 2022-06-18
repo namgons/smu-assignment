@@ -52,7 +52,7 @@ def logout_view(request):
 class ProfileView(DetailView):
 
     model = models.User
-    context_object_name = "user"
+    context_object_name = "user_obj"
     template_name = "users/profile.html"
 
     def get_context_data(self, **kwargs):

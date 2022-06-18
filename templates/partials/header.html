@@ -9,7 +9,7 @@
     <div>
 
         {% if user.is_authenticated %}
-            <span class="ml-5 font-semibold hover:text-red-400">Profile</span>
+            <a href="{% url 'users:profile' pk=user.pk %}" class="ml-5 font-semibold hover:text-red-400">{{ user.username }}'s Profile</a>
             <a href="{% url 'users:logout' %}" class="ml-5 font-semibold hover:text-red-400">Log Out</a>
         {% else %}
             <a href="{% url 'users:signup' %}" class="ml-5 font-semibold hover:text-red-400">Sign Up</a>
