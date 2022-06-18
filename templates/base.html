@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>{% block page_title %}{% endblock page_title %} | WatBook</title>
 </head>
-<body class="w-full">
+<body class="w-full min-h-full">
     {% include 'partials/header.html' %}
     
-    <main class="mx-80 mt-40 mb-40">
+    <main class="mx-80 mt-40 mb-40 min-h-screen">
         {% block content %}
         {% endblock content %}
     </main>

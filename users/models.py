@@ -17,7 +17,6 @@ class User(AbstractUser):
         return self.username
 
 
-
 class UserFollowing(core_models.TimeStampedModel):
     following_target_user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="following"

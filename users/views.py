@@ -5,29 +5,6 @@ from django.views.generic import View, DetailView, FormView
 from . import models, forms, mixins
 
 
-class LoginView(mixins.LoggedOutOnlyView, View):
-    def get(self, request):
-        form = forms.LoginForm()
-        return render(request, "users/login.html", context={"form": form})
-
-    def post(self, request):
-        form = forms.LoginForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get("username")
-            password = form.cleaned_data.get("password")
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-
-                return redirect(reverse("core:home"))
-        return render(request, "users/login.html", context={"form": form})
-
-
-def logout_view(request):
-    logout(request)
-    return redirect(reverse("core:home"))
-
-
 class SignupView(mixins.LoggedOutOnlyView, FormView):
 
     template_name = "users/signup.html"
@@ -48,6 +25,28 @@ class SignupView(mixins.LoggedOutOnlyView, FormView):
         form = super().get_form(form_class)
         form.fields["password1"].label = "Password Confirmation"
         return form
+
+
+class LoginView(mixins.LoggedOutOnlyView, View):
+    def get(self, request):
+        form = forms.LoginForm()
+        return render(request, "users/login.html", context={"form": form})
+
+    def post(self, request):
+        form = forms.LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect(reverse("core:home"))
+        return render(request, "users/login.html", context={"form": form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect(reverse("core:home"))
 
 
 class ProfileView(DetailView):
