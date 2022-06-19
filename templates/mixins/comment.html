@@ -1,7 +1,7 @@
 <div class="border-2 mb-5 w-full">
     <div class="w-full h-10 flex items-center justify-between border-b-2 px-10 ">
         <div>
-            <a href="{% url 'users:profile' review.user.pk %}" class="font-semibold text-red-400">{{review.user.username}}</a> <span class="text-sm">left comment on</span> <a href="{% url 'contents:single_content' review.content.pk %}" class="font-semibold text-red-400">{{review.content}}</a>
+            <a href="{% url 'users:profile' review.user.pk %}" class="font-semibold text-red-400">{{review.user.username}}</a> <span class="text-sm">left comment on</span> <a href="{% url 'contents:single_content' review.content.slug %}" class="font-semibold text-red-400">{{review.content}}</a>
         </div>
         <div class="flex items-center">
             <span class="text-sm text-gray-400">{{review.created}}</span>

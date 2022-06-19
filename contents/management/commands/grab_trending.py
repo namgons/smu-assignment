@@ -20,6 +20,7 @@ class Command(BaseCommand):
             for video in tmdb.Trending(time_window="week").info(page=i)["results"]:
                 try:
                     content_models.Content.objects.get(pk=video["id"])
+                    self.stdout.write(self.style.ERROR(f"ALREADY EXISTS!!"))
                 except content_models.Content.DoesNotExist:
                     count += 1
 
@@ -47,8 +48,10 @@ class Command(BaseCommand):
                     except KeyError:
                         pass
 
+                    slug = title.replace(" ", "_")
                     content = content_models.Content.objects.create(
                         title=title,
+                        slug=slug,
                         pk=pk,
                         overview=overview,
                         rating=rating,

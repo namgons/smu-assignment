@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 
 
@@ -11,7 +12,8 @@ class Content(models.Model):
         (TYPE_MOVIE, "movie"),
     )
 
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=30, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, allow_unicode=True, null=True)
     overview = models.TextField(max_length=150, null=True)
     rating = models.DecimalField(max_digits=3, decimal_places=1)
     released = models.DateField(null=True)

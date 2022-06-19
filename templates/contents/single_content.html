@@ -34,7 +34,7 @@
                 </div>
                 
                 {% if user.is_authenticated %}
-                <a href="{% url 'reviews:create' pk=content.pk %}">
+                <a href="{% url 'reviews:create' slug=content.slug %}">
                     <div class="flex items-center justify-center bg-red-400 px-10 py-5 rounded-xl">
                         <span class="text-white font-bold text-xl">Leave Comment</span>
                     </div>

@@ -15,21 +15,21 @@ class ReviewCreateView(user_mixins.LoggedInOnlyView, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        pk = self.kwargs["pk"]
-        context["content"] = content_models.Content.objects.get(pk=pk)
+        slug = self.kwargs["slug"]
+        context["content"] = content_models.Content.objects.get(slug=slug)
         return context
 
     def form_valid(self, form):
         comment = form.cleaned_data["comment"]
         user = self.request.user
-        pk = self.kwargs["pk"]
-        content = content_models.Content.objects.get(pk=pk)
+        slug = self.kwargs["slug"]
+        content = content_models.Content.objects.get(slug=slug)
         models.Review.objects.create(comment=comment, user=user, content=content)
-        return redirect(reverse("contents:single_content", kwargs={"pk": pk}))
+        return redirect(reverse("contents:single_content", kwargs={"slug": slug}))
 
 
-def review_delete(request, pk):
-    review = models.Review.objects.get(pk=pk)
+def review_delete(request, slug):
+    review = models.Review.objects.get(slug=slug)
 
     if request.method == "POST":
         review.delete()

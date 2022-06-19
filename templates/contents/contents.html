@@ -14,7 +14,7 @@
         <div class="grid grid-cols-4 gap-4">
             
             {% for content in contents %}
-                <a href="{% url 'contents:single_content' content.pk %}">
+                <a href="{% url 'contents:single_content' content.slug %}">
                     <div class="border-2 h-80 flex flex-col">
                         <div class="flex justify-center h-2/3 pt-5">
                             <img src="{{ content.poster_path }}" class="h-full">
