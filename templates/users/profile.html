@@ -15,8 +15,8 @@
                 {{ user_obj.username}}
             {% endif %}
             </span>
-            <span>Following: <span class="text-red-400 font-semibold">{{ user_obj.count_following }}</span></span>
-            <span>Followers: <span class="text-red-400 font-semibold">{{ user_obj.count_followers }}</span></span>
+            <span>Following: <span class="text-red-400 font-semibold">{{ user_obj.followings.count }}</span></span>
+            <span>Followers: <span class="text-red-400 font-semibold">{{ user_obj.followers.count }}</span></span>
         </div>
 
         <div class="mt-20">

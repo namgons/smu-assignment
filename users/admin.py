@@ -24,9 +24,9 @@ class CustomUserAdmin(UserAdmin):
     )
 
 
-@admin.register(models.UserFollowing)
-class UserFollowingAdmin(admin.ModelAdmin):
+# @admin.register(models.UserFollowing)
+# class UserFollowingAdmin(admin.ModelAdmin):
 
-    list_display = ("user_id", "following_user_id")
+#     list_display = ("user_id", "following_user_id")
 
-    ordering = ("-user_id",)
+#     ordering = ("-user_id",)
