@@ -15,7 +15,13 @@
             
             
             <a href="{% url 'users:profile' person.pk %}" class="font-semibold text-red-400">
-                {% if person in user.followings.all %}<i class="fa-solid fa-heart fa-lg text-red-500"></i>{% endif %}
+                
+                {% if user.is_authenticated %}
+                    {% if person in user.followings.all %}
+                        <i class="fa-solid fa-heart fa-lg text-red-500"></i>
+                    {% endif %}
+                {% endif %}
+                    
                 {{ person.username }}
             </a>
             
