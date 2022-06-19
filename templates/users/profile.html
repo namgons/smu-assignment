@@ -1,23 +1,25 @@
 {% extends 'base.html' %}
 
 {% block page_title %}
-    {{ user_obj.username }}'s Profile
+    {{ user_obj.username }}'s 프로필
 {% endblock page_title %}
 
 {% block content %}
     
     <div>
         <div class="flex justify-between items-center">
-            <div>
-                <span class="text-5xl font-bold mr-5">
+            <div class="flex items-center">
+                <span class="text-5xl font-bold mr-10">
                 {% if user.is_authenticated and user == user_obj %}
                     내 프로필
                 {% else %}
                     {{ user_obj.username}}
                 {% endif %}
                 </span>
-                <span>Following: <span class="text-red-400 font-semibold">{{ user_obj.followings.count }}</span></span>
-                <span>Followers: <span class="text-red-400 font-semibold">{{ user_obj.followers.count }}</span></span>
+                <div class="flex flex-col items-center">
+                    <a class="hover:underline hover:text-red-400" href="{% url 'users:followings' user_obj.pk %}"><span>Following: <span class="text-red-400 font-semibold">{{ user_obj.followings.count }}</span> &rarr;</span></a>
+                    <a class="hover:underline hover:text-red-400" href="{% url 'users:followers' user_obj.pk %}"><span>Followers: <span class="text-red-400 font-semibold">{{ user_obj.followers.count }}</span> &rarr;</span></a>
+                </div>
             </div>
             <div>
                 
@@ -34,13 +36,13 @@
                         </form>
                     {% endif %}
                 {% endif %}
-                    
+
             </div>
         </div>
 
         <div class="mt-20">
             <span class="text-xl">
-                <span class="font-bold">{% if user.is_authenticated and user == user_obj %}
+                <span>{% if user.is_authenticated and user == user_obj %}
                         내가
                     {% else %}
                         {{ user_obj.username}} 님이

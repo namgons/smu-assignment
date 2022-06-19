@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
-from django.views.generic import DetailView
-from . import models
+from django.views.generic import DetailView, ListView
+from . import models, mixins
 
 
 class ProfileView(DetailView):
@@ -36,3 +36,17 @@ def unfollow(request, pk):
     if request.method == "POST":
         request.user.followings.remove(target_user)
         return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+
+
+class FollowersView(mixins.LoggedInOnlyView, DetailView):
+
+    model = models.User
+    context_object_name = "user_obj"
+    template_name = "users/followers.html"
+
+
+class FollowingsView(mixins.LoggedInOnlyView, DetailView):
+
+    model = models.User
+    context_object_name = "user_obj"
+    template_name = "users/followings.html"

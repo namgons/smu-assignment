@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    {{ user_obj.username }}'s 팔로잉
+{% endblock page_title %}
+
+{% block content %}
+
+    <div class="text-5xl font-bold mb-10">
+        {{ user_obj.username }}'s 팔로잉({{ user_obj.followings.count }})
+    </div>
+    
+    <div class="grid grid-cols-5 gap-5 mt-20">
+        {% for person in user_obj.followings.all %}
+            
+            <a href="{% url 'users:profile' person.pk %}" class="font-semibold text-red-400">{{ person.username }}</a>
+            
+        {% endfor %}
+    </div>
+
+{% endblock content %}

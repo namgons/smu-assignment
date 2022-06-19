@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    {{ user_obj.username }}'s 팔로워
+{% endblock page_title %}
+
+{% block content %}
+
+    <div class="text-5xl font-bold mb-10">
+        {{ user_obj.username }}'s 팔로워({{ user_obj.followers.count }})
+    </div>
+    
+    <div class="grid grid-cols-5 gap-5 mt-20">
+        {% for person in user_obj.followers.all %}
+            
+            {% if review.user in user_obj.followings.all %}<i class="fa-solid fa-heart fa-lg text-red-500"></i>{% endif %}
+            <a href="{% url 'users:profile' person.pk %}" class="font-semibold text-red-400">{{ person.username }}</a>
+            
+        {% endfor %}
+    </div>
+
+{% endblock content %}
