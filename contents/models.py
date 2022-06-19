@@ -1,4 +1,4 @@
-import uuid
+from django.urls import reverse
 from django.db import models
 
 
@@ -25,3 +25,6 @@ class Content(models.Model):
 
     def count_reviews(self):
         return self.reviews.count()
+
+    def get_absolute_url(self):
+        return reverse("contents:single_content", kwargs={"pk": self.pk})
