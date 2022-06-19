@@ -5,4 +5,5 @@ app_name = "reviews"
 
 urlpatterns = [
     path("<int:pk>/create/", views.ReviewCreateView.as_view(), name="create"),
+    path("<int:pk>/delete/", views.review_delete, name="delete"),
 ]

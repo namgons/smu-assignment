@@ -3,8 +3,14 @@
         <div>
             <a href="{% url 'users:profile' review.user.pk %}" class="font-semibold text-red-400">{{review.user.username}}</a> <span class="text-sm">left comment on</span> <a href="{% url 'contents:single_content' review.content.pk %}" class="font-semibold text-red-400">{{review.content}}</a>
         </div>
-        <div>
+        <div class="flex items-center">
             <span class="text-sm text-gray-400">{{review.created}}</span>
+            {% if user.is_authenticated and review.user == user%}
+            <form action="{% url 'reviews:delete' review.pk %}" method="POST" class="ml-3">
+                {% csrf_token %}
+                <button class="bg-red-600 text-white px-2 py-0.5 rounded-lg font-semibold">DEL</button>
+            </form>
+            {% endif %}
         </div>
     </div>
     <div class="w-full h-20 px-10 min-h-min flex items-center">

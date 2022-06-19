@@ -1,3 +1,4 @@
+from re import L
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import CreateView
@@ -24,3 +25,12 @@ class ReviewCreateView(CreateView):
         content = content_models.Content.objects.get(pk=pk)
         models.Review.objects.create(comment=comment, user=user, content=content)
         return redirect(reverse("contents:single_content", kwargs={"pk": pk}))
+
+
+def review_delete(request, pk):
+    review = models.Review.objects.get(pk=pk)
+
+    if request.method == "POST":
+        review.delete()
+        return redirect("/")
+        
