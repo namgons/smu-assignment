@@ -37,6 +37,7 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",  # django-allauth
 ]
 
 PROJECT_APPS = [
@@ -52,6 +53,10 @@ THIRD_PARTY_APPS = [
     "requests",
     "django_seed",
     "dotenv",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
@@ -139,3 +144,19 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 AUTH_USER_MODEL = "users.User"
+
+
+# Authentication
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_REQUIRED = True
+
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
+LOGIN_REDIRECT_URL = "/"

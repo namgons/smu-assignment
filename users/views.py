@@ -48,7 +48,7 @@ def logout_view(request):
     return redirect(reverse("core:home"))
 
 
-class ProfileView(DetailView):
+class ProfileView( DetailView):
 
     model = models.User
     context_object_name = "user_obj"

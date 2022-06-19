@@ -12,5 +12,4 @@ class LoggedOutOnlyView(UserPassesTestMixin):
 
 
 class LoggedInOnlyView(LoginRequiredMixin):
-
     login_url = reverse_lazy("users:login")

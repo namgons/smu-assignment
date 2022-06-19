@@ -1,12 +1,13 @@
-from re import L
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import CreateView
 from . import models
 from contents import models as content_models
+from users import mixins as user_mixins
 
 
-class ReviewCreateView(CreateView):
+class ReviewCreateView(user_mixins.LoggedInOnlyView, CreateView):
 
     model = models.Review
     fields = ("comment",)
@@ -32,5 +33,4 @@ def review_delete(request, pk):
 
     if request.method == "POST":
         review.delete()
-        return redirect("/")
-        
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER"))

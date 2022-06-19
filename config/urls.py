@@ -21,5 +21,6 @@ urlpatterns = [
     path("contents/", include("contents.urls", namespace="contents")),
     path("reviews/", include("reviews.urls", namespace="reviews")),
     path("users/", include("users.urls", namespace="users")),
+    path("accounts/", include("allauth.urls")),
     path("admin/", admin.site.urls),
 ]
