@@ -22,3 +22,11 @@ class CustomUserAdmin(UserAdmin):
         "is_staff",
         "is_superuser",
     )
+
+
+@admin.register(models.UserFollowing)
+class UserFollowingAdmin(admin.ModelAdmin):
+
+    list_display = ("user_id", "following_user_id")
+
+    ordering = ("-user_id",)
