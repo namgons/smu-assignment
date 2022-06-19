@@ -1,0 +1,30 @@
+{% load socialaccount %}
+
+<form method="POST" enctype="multipart/form-data" class="w-2/3  mx-auto flex flex-col">
+    {% csrf_token %}
+
+    <div class="mx-auto">
+        <div>
+                
+            {% for field in form %}
+                <div class="flex justify-between mb-5">
+                    <span class="mr-10">{{ field.label }}</span>
+                    <div class="border-2">{{ field }}</div>
+                </div>
+            {% endfor %}
+
+        </div>
+        
+        <div class="mx-auto text-center mt-10">
+
+            {% if action == "signup" %}
+                <a class="mx-auto font-semibold hover:underline hover:text-red-400" href='{% provider_login_url "google" process="connect" %}'>Sign Up with Google account&rarr; </a>
+            {% elif action == "login" %}
+                 <a class="mx-auto font-semibold hover:underline hover:text-red-400" href='{% provider_login_url "google" process="login" %}'>Log in with Google account&rarr; </a>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <button class="mx-auto mt-10 bg-red-400 px-5 py-3 rounded-xl border"><span class="text-white">{{ cta }}</span></button>
+</form>

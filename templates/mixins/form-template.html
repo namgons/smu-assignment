@@ -8,6 +8,13 @@
                 <div class="input-div border-2">{{ field }}</div>
             </div>
         {% endfor %}
+
+        
+        {% if cta == "" %}
+            users
+        {% endif %}
+            
+
     </div>
 
     <button class="mx-auto mt-10 bg-red-400 px-5 py-3 rounded-xl border"><span class="text-white">{{ cta }}</span></button>

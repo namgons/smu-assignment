@@ -10,10 +10,10 @@
 
         {% if user.is_authenticated %}
             <a href="{% url 'users:profile' pk=user.pk %}" class="ml-5 font-semibold hover:text-red-400">{{ user.username }}'s Profile</a>
-            <a href="{% url 'users:logout' %}" class="ml-5 font-semibold hover:text-red-400">Log Out</a>
+            <a href="/accounts/logout/" class="ml-5 font-semibold hover:text-red-400">Log Out</a>
         {% else %}
-            <a href="{% url 'users:signup' %}" class="ml-5 font-semibold hover:text-red-400">Sign Up</a>
-            <a href="{% url 'users:login' %}" class="ml-5 font-semibold hover:text-red-400">Log In</a>
+            <a href="/accounts/signup/" class="ml-5 font-semibold hover:text-red-400">Sign Up</a>
+            <a href="/accounts/login/" class="ml-5 font-semibold hover:text-red-400">Log In</a>
         {% endif %}
 
     </div>
