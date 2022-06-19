@@ -61,17 +61,7 @@ class ProfileView(DetailView):
         return context
 
 
+""" 
 class FavsView(View):
     pass
-
-
-class ReviewsView(View):
-    pass
-
-
-class FollowersView(View):
-    pass
-
-
-class FollowingView(View):
-    pass
+ """

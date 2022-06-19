@@ -14,8 +14,6 @@ class CustomUserAdmin(UserAdmin):
 
     list_display = (
         "username",
-        "count_following",
-        "count_followers",
         "count_reviews",
         "first_name",
         "last_name",
@@ -24,11 +22,3 @@ class CustomUserAdmin(UserAdmin):
         "is_staff",
         "is_superuser",
     )
-
-
-@admin.register(models.UserFollowing)
-class UserFollowingAdmin(admin.ModelAdmin):
-
-    list_display = ("following_user", "following_target_user")
-
-    ordering = ("-following_user",)
