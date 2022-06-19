@@ -7,16 +7,35 @@
 {% block content %}
     
     <div>
-        <div>
-            <span class="text-5xl font-bold mr-5">
-            {% if user.is_authenticated and user == user_obj %}
-                내 프로필
-            {% else %}
-                {{ user_obj.username}}
-            {% endif %}
-            </span>
-            <span>Following: <span class="text-red-400 font-semibold">{{ user_obj.followings.count }}</span></span>
-            <span>Followers: <span class="text-red-400 font-semibold">{{ user_obj.followers.count }}</span></span>
+        <div class="flex justify-between items-center">
+            <div>
+                <span class="text-5xl font-bold mr-5">
+                {% if user.is_authenticated and user == user_obj %}
+                    내 프로필
+                {% else %}
+                    {{ user_obj.username}}
+                {% endif %}
+                </span>
+                <span>Following: <span class="text-red-400 font-semibold">{{ user_obj.followings.count }}</span></span>
+                <span>Followers: <span class="text-red-400 font-semibold">{{ user_obj.followers.count }}</span></span>
+            </div>
+            <div>
+                
+                {% if user.is_authenticated and user != user_obj %}
+                    {% if user_obj in user.followings.all %}
+                        <form action="{% url 'users:unfollow' user_obj.pk %}" method="POST">
+                            {% csrf_token %}
+                            <button><i class="fa-solid fa-heart text-red-400 text-8xl"></i></button>
+                        </form>
+                    {% else %}
+                        <form action="{% url 'users:follow' user_obj.pk %}" method="POST">
+                            {% csrf_token %}
+                            <button><i class="fa-solid fa-heart text-gray-300 text-8xl"></i></button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+                    
+            </div>
         </div>
 
         <div class="mt-20">

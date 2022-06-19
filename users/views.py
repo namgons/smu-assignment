@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.views.generic import DetailView
 from . import models
 
@@ -19,3 +20,19 @@ class ProfileView(DetailView):
 class FavsView(View):
     pass
  """
+
+
+def follow(request, pk):
+    target_user = models.User.objects.get(pk=pk)
+
+    if request.method == "POST":
+        request.user.followings.add(target_user)
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+
+
+def unfollow(request, pk):
+    target_user = models.User.objects.get(pk=pk)
+
+    if request.method == "POST":
+        request.user.followings.remove(target_user)
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
