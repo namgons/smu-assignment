@@ -27,4 +27,4 @@ class Content(models.Model):
         return self.reviews.count()
 
     def get_absolute_url(self):
-        return reverse("contents:single_content", kwargs={"pk": self.pk})
+        return reverse("contents:single_content", kwargs={"slug": self.slug})

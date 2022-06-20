@@ -14,7 +14,7 @@
         {% for person in user_obj.followers.all %}
             
             
-            <a href="{% url 'users:profile' person.pk %}" class="font-semibold text-red-400">
+            <a href="{{ person.get_absolute_url }}" class="font-semibold text-red-400">
                 
                 {% if user.is_authenticated %}
                     {% if person in user.followings.all %}
